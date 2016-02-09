@@ -33,8 +33,7 @@ const detectRepoLinters = require('detect-repo-linters');
 
 detectRepoLinters('repo-directory')
 .then((linters) => {
-    console.log(linters);
-
+    // linters is an object that looks like:
     // {
     //     general: ['editorconfig'],
     //     js: ['eslint'],
@@ -44,12 +43,12 @@ detectRepoLinters('repo-directory')
 });
 ```
 
-At the moment, `detect-repo-linters` can detect the following linters:
+At the moment the following linters are detected:
 
-- `general`: [editorconfig](http://editorconfig.org)
-- `js`: [eslint](http://eslint.org), [jscs](http://jscs.info) and [jshint](http://jshint.com)
-- `css`: [stylelint](http://stylelint.io) and [csslint](http://csslint.net)
-- `html`: [htmlhint](http://htmlhint.com) and [htmllint](http://htmllint.github.io)
+- general: [editorconfig](http://editorconfig.org)
+- js: [eslint](http://eslint.org), [jscs](http://jscs.info) and [jshint](http://jshint.com)
+- css: [stylelint](http://stylelint.io) and [csslint](http://csslint.net)
+- html: [htmlhint](http://htmlhint.com) and [htmllint](http://htmllint.github.io)
 
 Feel free to a PR to include other linters as part of the detection!
 
