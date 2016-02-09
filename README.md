@@ -26,7 +26,7 @@ Scans a repository directory, searching for configured linters.
 
 `detectRepoLinters(dir, [callback]) -> Promise`
 
-You may consume the API using promises or callbacks, it's up to you.
+You may consume the result using promises or callbacks, it's up to you.
 
 ```js
 const detectRepoLinters = require('detect-repo-linters');
