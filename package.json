@@ -1,0 +1,54 @@
+{
+  "name": "detect-repo-linters",
+  "version": "0.1.0",
+  "description": "Scans a repository directory, searching for configured linters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --bail",
+    "test-cov": "istanbul cover --dir test/coverage _mocha -- --bail && echo Coverage lies in test/coverage/lcov-report/index.html",
+    "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --bail && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "bugs": {
+    "url": "https://github.com/IndigoUnited/node-detect-repo-linters/issues/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/IndigoUnited/node-detect-repo-linters.git"
+  },
+  "keywords": [
+    "linter",
+    "linters",
+    "detect",
+    "scan",
+    "repository",
+    "repo",
+    "editorconfig",
+    "eslint",
+    "jshint",
+    "jscs",
+    "jslint",
+    "stylelint",
+    "csslint",
+    "htmlhint",
+    "htmllint"
+  ],
+  "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
+  "license": "MIT",
+  "dependencies": {
+    "call-me-maybe": "^1.0.1",
+    "load-json-file": "^1.1.0",
+    "require-directory": "^2.1.1"
+  },
+  "devDependencies": {
+    "@satazor/eslint-config": "^1.0.6",
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
