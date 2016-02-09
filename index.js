@@ -5,7 +5,7 @@ const requireDirectory = require('require-directory');
 const callMeMaybe = require('call-me-maybe');
 const detectors = requireDirectory(module, './lib', { recurse: false });
 
-const linters = {
+const lintersByType = {
     general: [
         { name: 'editorconfig', fn: detectors.editorconfig },
     ],
@@ -23,6 +23,7 @@ const linters = {
         { name: 'htmllint', fn: detectors.htmllint },
     ],
 };
+const linterTypes = Object.keys(lintersByType);
 
 function detectLinters(dir, linters) {
     return Promise.all(linters.map((linter) => linter.fn(dir)))
@@ -46,15 +47,14 @@ function detectRepoLinters(dir, callback) {
     })
     // Run the linter detectors and build the results
     .then(() => {
-        const types = Object.keys(linters);
-        const promises = types.map((type) => detectLinters(dir, linters[type]));
+        const promises = linterTypes.map((type) => detectLinters(dir, lintersByType[type]));
 
         return Promise.all(promises)
         .then((results) => {
             const ret = {};
 
             results.forEach((result, index) => {
-                ret[types[index]] = result;
+                ret[linterTypes[index]] = result;
             });
 
             return ret;
