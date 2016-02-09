@@ -24,7 +24,7 @@ Scans a repository directory, searching for configured linters.
 
 ## Usage
 
-`detectRepoLinters(repo, [callback]) -> Promise`
+`detectRepoLinters(dir, [callback]) -> Promise`
 
 You may consume the API using promises or callbacks, it's up to you.
 
