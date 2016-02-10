@@ -217,6 +217,22 @@ describe('detect-repo-linters', () => {
         });
     });
 
+    it('should ignore linter config files that are actually directories', () => {
+        cleanTmpFolder();
+        fs.mkdirSync(`${tmpFolder}/.editorconfig`);
+        fs.mkdirSync(`${tmpFolder}/.eslintrc.json`);
+        fs.mkdirSync(`${tmpFolder}/.jshintrc`);
+        fs.mkdirSync(`${tmpFolder}/.stylelintrc`);
+        fs.mkdirSync(`${tmpFolder}/.csslintrc`);
+        fs.mkdirSync(`${tmpFolder}/.htmlhintrc`);
+        fs.mkdirSync(`${tmpFolder}/.htmllintrc`);
+
+        return detectRepoLinters(tmpFolder)
+        .then((linters) => {
+            expect(linters).to.eql({ general: [], js: [], css: [], html: [] });
+        });
+    });
+
     it('should fail if dir does not exist', () => {
         return detectRepoLinters('some-dir-that-will-never-exist')
         .then(() => {
