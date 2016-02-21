@@ -6,9 +6,9 @@
 [downloads-image]:http://img.shields.io/npm/dm/detect-repo-linters.svg
 [npm-image]:http://img.shields.io/npm/v/detect-repo-linters.svg
 [travis-url]:https://travis-ci.org/IndigoUnited/node-detect-repo-linters
-[travis-image]:http://img.shields.io/travis/IndigoUnited/node-detect-repo-linters.svg
+[travis-image]:http://img.shields.io/travis/IndigoUnited/node-detect-repo-linters/master.svg
 [coveralls-url]:https://coveralls.io/r/IndigoUnited/node-detect-repo-linters
-[coveralls-image]:https://img.shields.io/coveralls/IndigoUnited/node-detect-repo-linters.svg
+[coveralls-image]:https://img.shields.io/coveralls/IndigoUnited/node-detect-repo-linters/master.svg
 [david-dm-url]:https://david-dm.org/IndigoUnited/node-detect-repo-linters
 [david-dm-image]:https://img.shields.io/david/IndigoUnited/node-detect-repo-linters.svg
 [david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-detect-repo-linters#info=devDependencies
