@@ -37,7 +37,7 @@
   "license": "MIT",
   "dependencies": {
     "call-me-maybe": "^1.0.1",
-    "load-json-file": "^1.1.0",
+    "load-json-file": "^2.0.0",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {
