@@ -31,7 +31,7 @@ You may consume the result using promises or callbacks, it's up to you.
 ```js
 const detectRepoLinters = require('detect-repo-linters');
 
-detectRepoLinters('repo-directory')
+detectRepoLinters('./some-repository-directory')
 .then((linters) => {
     // linters is an object that looks like:
     // {
