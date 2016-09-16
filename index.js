@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const requireDirectory = require('require-directory');
-const callMeMaybe = require('call-me-maybe');
 const detectors = requireDirectory(module, './lib', { recurse: false });
 
 const lintersByType = {
@@ -34,9 +33,9 @@ function detectLinters(dir, linters) {
     });
 }
 
-function detectRepoLinters(dir, callback) {
+function detectRepoLinters(dir) {
     // Check if dir exists
-    const promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         fs.stat(dir, (err) => {
             if (err) {
                 reject(err);
@@ -60,8 +59,6 @@ function detectRepoLinters(dir, callback) {
             return ret;
         });
     });
-
-    return callMeMaybe(callback, promise);
 }
 
 module.exports = detectRepoLinters;
