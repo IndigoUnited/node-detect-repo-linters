@@ -20,7 +20,7 @@ it('should detect editorconfig', () => {
     fs.writeFileSync(`${tmpFolder}/.editorconfig`, '');
 
     function assert(linters) {
-        expect(linters).to.eql({ general: ['editorconfig'], js: [], css: [], html: [] });
+        expect(linters).to.eql({ general: ['editorconfig'], js: [], css: [], html: [], coffee: [] });
     }
 
     return detectRepoLinters(tmpFolder)
@@ -29,7 +29,7 @@ it('should detect editorconfig', () => {
 
 it('should detect eslint', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: ['eslint'], css: [], html: [] });
+        expect(linters).to.eql({ general: [], js: ['eslint'], css: [], html: [], coffee: [] });
     }
 
     cleanTmpFolder();
@@ -76,7 +76,7 @@ it('should detect eslint', () => {
 
 it('should detect jscs', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: ['jscs'], css: [], html: [] });
+        expect(linters).to.eql({ general: [], js: ['jscs'], css: [], html: [], coffee: [] });
     }
 
     cleanTmpFolder();
@@ -102,7 +102,7 @@ it('should detect jscs', () => {
 
 it('should detect jshint', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: ['jshint'], css: [], html: [] });
+        expect(linters).to.eql({ general: [], js: ['jshint'], css: [], html: [], coffee: [] });
     }
 
     cleanTmpFolder();
@@ -121,7 +121,7 @@ it('should detect jshint', () => {
 
 it('should detect stylelint', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: [], css: ['stylelint'], html: [] });
+        expect(linters).to.eql({ general: [], js: [], css: ['stylelint'], html: [], coffee: [] });
     }
 
     cleanTmpFolder();
@@ -161,7 +161,7 @@ it('should detect stylelint', () => {
 
 it('should detect csslint', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: [], css: ['csslint'], html: [] });
+        expect(linters).to.eql({ general: [], js: [], css: ['csslint'], html: [], coffee: [] });
     }
 
     cleanTmpFolder();
@@ -173,7 +173,7 @@ it('should detect csslint', () => {
 
 it('should detect htmlhint', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: [], css: [], html: ['htmlhint'] });
+        expect(linters).to.eql({ general: [], js: [], css: [], html: ['htmlhint'], coffee: [] });
     }
 
     cleanTmpFolder();
@@ -185,13 +185,31 @@ it('should detect htmlhint', () => {
 
 it('should detect htmllint', () => {
     function assert(linters) {
-        expect(linters).to.eql({ general: [], js: [], css: [], html: ['htmllint'] });
+        expect(linters).to.eql({ general: [], js: [], css: [], html: ['htmllint'], coffee: [] });
     }
 
     cleanTmpFolder();
     fs.writeFileSync(`${tmpFolder}/.htmllintrc`, '');
 
     return detectRepoLinters(tmpFolder)
+    .then(assert);
+});
+
+it('should detect coffeelint', () => {
+    cleanTmpFolder();
+    fs.writeFileSync(`${tmpFolder}/coffeelint.json`, '');
+
+    function assert(linters) {
+        expect(linters).to.eql({ general: [], js: [], css: [], html: [], coffee: ['coffeelint'] });
+    }
+
+    return detectRepoLinters(tmpFolder)
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ coffeelintConfig: {} }));
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
@@ -204,6 +222,7 @@ it('should detect several linters in a complex repository', () => {
     fs.writeFileSync(`${tmpFolder}/.csslintrc`, '');
     fs.writeFileSync(`${tmpFolder}/.htmlhintrc`, '');
     fs.writeFileSync(`${tmpFolder}/.htmllintrc`, '');
+    fs.writeFileSync(`${tmpFolder}/coffeelint.json`, '');
 
     return detectRepoLinters(tmpFolder)
     .then((linters) => {
@@ -212,6 +231,7 @@ it('should detect several linters in a complex repository', () => {
             js: ['eslint', 'jshint'],
             css: ['stylelint', 'csslint'],
             html: ['htmlhint', 'htmllint'],
+            coffee: ['coffeelint'],
         });
     });
 });
@@ -225,10 +245,11 @@ it('should ignore linter config files that are actually directories', () => {
     fs.mkdirSync(`${tmpFolder}/.csslintrc`);
     fs.mkdirSync(`${tmpFolder}/.htmlhintrc`);
     fs.mkdirSync(`${tmpFolder}/.htmllintrc`);
+    fs.mkdirSync(`${tmpFolder}/coffeelint.json`);
 
     return detectRepoLinters(tmpFolder)
     .then((linters) => {
-        expect(linters).to.eql({ general: [], js: [], css: [], html: [] });
+        expect(linters).to.eql({ general: [], js: [], css: [], html: [], coffee: [] });
     });
 });
 
