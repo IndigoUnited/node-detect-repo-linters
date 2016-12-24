@@ -39,6 +39,7 @@ detectRepoLinters('./some-repository-directory')
     //     js: ['eslint'],
     //     css: ['stylelint'],
     //     html: [],
+    //    coffee: [],
     // }
 });
 ```
@@ -49,6 +50,7 @@ At the moment the following linters are detected:
 - js: [eslint](http://eslint.org), [jscs](http://jscs.info) and [jshint](http://jshint.com)
 - css: [stylelint](http://stylelint.io) and [csslint](http://csslint.net)
 - html: [htmlhint](http://htmlhint.com) and [htmllint](http://htmllint.github.io)
+- coffee: [coffeelint](http://coffeelint.org)
 
 Feel free to a PR to include other linters as part of the detection!
 

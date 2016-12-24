@@ -21,6 +21,9 @@ const lintersByType = {
         { name: 'htmlhint', fn: detectors.htmlhint },
         { name: 'htmllint', fn: detectors.htmllint },
     ],
+    coffee: [
+      { name: 'coffeelint', fn: detectors.coffeelint },
+    ],
 };
 const linterTypes = Object.keys(lintersByType);
 
