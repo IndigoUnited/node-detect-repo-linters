@@ -39,7 +39,7 @@ detectRepoLinters('./some-repository-directory')
     //     js: ['eslint'],
     //     css: ['stylelint'],
     //     html: [],
-    //    coffee: [],
+    //     coffee: [],
     // }
 });
 ```
