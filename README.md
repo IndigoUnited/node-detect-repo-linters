@@ -11,7 +11,7 @@
 [coveralls-image]:https://img.shields.io/coveralls/IndigoUnited/node-detect-repo-linters/master.svg
 [david-dm-url]:https://david-dm.org/IndigoUnited/node-detect-repo-linters
 [david-dm-image]:https://img.shields.io/david/IndigoUnited/node-detect-repo-linters.svg
-[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-detect-repo-linters#info=devDependencies
+[david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-detect-repo-linters?type=dev
 [david-dm-dev-image]:https://img.shields.io/david/dev/IndigoUnited/node-detect-repo-linters.svg
 
 Scans a repository directory, searching for configured linters.
