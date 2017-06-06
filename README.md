@@ -1,6 +1,6 @@
 # detect-repo-linters
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url] [![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 
 [npm-url]:https://npmjs.org/package/detect-repo-linters
 [downloads-image]:http://img.shields.io/npm/dm/detect-repo-linters.svg
@@ -13,6 +13,8 @@
 [david-dm-image]:https://img.shields.io/david/IndigoUnited/node-detect-repo-linters.svg
 [david-dm-dev-url]:https://david-dm.org/IndigoUnited/node-detect-repo-linters?type=dev
 [david-dm-dev-image]:https://img.shields.io/david/dev/IndigoUnited/node-detect-repo-linters.svg
+[greenkeeper-image]:https://badges.greenkeeper.io/IndigoUnited/node-detect-repo-linters.svg
+[greenkeeper-url]:https://greenkeeper.io/
 
 Scans a repository directory, searching for configured linters.
 
