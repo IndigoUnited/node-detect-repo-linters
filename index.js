@@ -57,12 +57,7 @@ function detectRepoLinters(dir) {
         return Promise.all(promises)
         .then((results) => {
             const ret = {};
-
-            results.forEach((result, index) => {
-                ret[linterTypes[index]] = result;
-            });
-
-            return ret;
+            return results.concat.apply([], results);
         });
     });
 }

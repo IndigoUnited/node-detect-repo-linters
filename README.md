@@ -35,15 +35,9 @@ const detectRepoLinters = require('detect-repo-linters');
 
 detectRepoLinters('./some-repository-directory')
 .then((linters) => {
-    // linters is an object that looks like:
-    // {
-    //     general: ['editorconfig'],
-    //     js: ['eslint'],
-    //     css: ['stylelint'],
-    //     html: [],
-    //     coffee: [],
-    //     ts: [],
-    // }
+    // linters is an array of linter names that looks like:
+    // ['editorconfig', 'eslint', 'stylelint']
+    // 
 });
 ```
 
