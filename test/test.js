@@ -224,6 +224,25 @@ it('should detect tslint', () => {
     return detectRepoLinters(tmpFolder)
         .then(assert);
 });
+it('should detect prettier', () => {
+    function assert(linters) {
+        expect(linters).to.eql(['prettier']);
+    }
+
+    return ['.prettierrc', '.prettierrc.yaml', '.prettierrc.yml', '.prettierrc.json', '.prettierrc.js', 'prettier.config.js']
+        .reduce((promise, file) => promise.then(() => {
+                cleanTmpFolder();
+                fs.writeFileSync(`${tmpFolder}/${file}`, '');
+                return detectRepoLinters(tmpFolder);
+            }).then(assert)
+            , Promise.resolve())
+        .then(() => {
+            cleanTmpFolder();
+            fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ prettier: {} }));
+            return detectRepoLinters(tmpFolder);
+        })
+        .then(assert);
+});
 
 it('should detect several linters in a complex repository', () => {
     cleanTmpFolder();
@@ -239,7 +258,8 @@ it('should detect several linters in a complex repository', () => {
 
     return detectRepoLinters(tmpFolder)
     .then((linters) => {
-        expect(linters).to.eql(['editorconfig', 'eslint', 'jshint', 'stylelint', 'csslint', 'htmlhint', 'htmllint', 'coffeelint', 'tslint']);
+        expect(linters).to.eql(['editorconfig', 'eslint', 'jshint', 'stylelint', 'csslint', 'htmlhint', 'htmllint',
+            'coffeelint', 'tslint']);
     });
 });
 

@@ -27,6 +27,9 @@ const lintersByType = {
     ts: [
       { name: 'tslint', fn: detectors.tslint },
     ],
+    prettier: [
+      { name: 'prettier', fn: detectors.prettier },
+    ],
 };
 const linterTypes = Object.keys(lintersByType);
 
