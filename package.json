@@ -1,6 +1,6 @@
 {
   "name": "detect-repo-linters",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Scans a repository directory, searching for configured linters.",
   "main": "index.js",
   "scripts": {
