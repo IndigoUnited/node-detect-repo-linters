@@ -215,7 +215,7 @@ it('should detect coffeelint', () => {
 
 it('should detect tslint', () => {
     function assert(linters) {
-        expect(linters).to.eql(['tslint'] );
+        expect(linters).to.eql(['tslint']);
     }
 
     cleanTmpFolder();
@@ -230,11 +230,13 @@ it('should detect prettier', () => {
     }
 
     return ['.prettierrc', '.prettierrc.yaml', '.prettierrc.yml', '.prettierrc.json', '.prettierrc.js', 'prettier.config.js']
-        .reduce((promise, file) => promise.then(() => {
+        .reduce((promise, file) => promise
+            .then(() => {
                 cleanTmpFolder();
                 fs.writeFileSync(`${tmpFolder}/${file}`, '');
                 return detectRepoLinters(tmpFolder);
-            }).then(assert)
+            })
+            .then(assert)
             , Promise.resolve())
         .then(() => {
             cleanTmpFolder();
@@ -258,8 +260,8 @@ it('should detect several linters in a complex repository', () => {
 
     return detectRepoLinters(tmpFolder)
     .then((linters) => {
-        expect(linters).to.eql(['editorconfig', 'eslint', 'jshint', 'stylelint', 'csslint', 'htmlhint', 'htmllint',
-            'coffeelint', 'tslint']);
+        expect(linters).to.eql(['coffeelint', 'csslint', 'editorconfig', 'eslint', 'htmlhint', 'htmllint', 'jshint',
+            'stylelint', 'tslint']);
     });
 });
 
