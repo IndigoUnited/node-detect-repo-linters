@@ -24,6 +24,9 @@ const lintersByType = {
     coffee: [
       { name: 'coffeelint', fn: detectors.coffeelint },
     ],
+    ts: [
+      { name: 'tslint', fn: detectors.tslint },
+    ],
 };
 const linterTypes = Object.keys(lintersByType);
 
