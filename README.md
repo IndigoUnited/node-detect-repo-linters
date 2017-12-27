@@ -37,18 +37,22 @@ detectRepoLinters('./some-repository-directory')
 .then((linters) => {
     // linters is an array of linter names that looks like:
     // ['editorconfig', 'eslint', 'stylelint']
-    // 
 });
 ```
 
 At the moment the following linters are detected:
 
-- general: [editorconfig](http://editorconfig.org)
-- js: [eslint](http://eslint.org), [jscs](http://jscs.info) and [jshint](http://jshint.com)
-- css: [stylelint](http://stylelint.io) and [csslint](http://csslint.net)
-- html: [htmlhint](http://htmlhint.com) and [htmllint](http://htmllint.github.io)
-- coffee: [coffeelint](http://coffeelint.org)
-- ts: [tslint](https://palantir.github.io/tslint/)
+- [editorconfig](http://editorconfig.org)
+- [eslint](http://eslint.org)
+- [jscs](http://jscs.info)
+- [jshint](http://jshint.com)
+- [stylelint](http://stylelint.io)
+- [csslint](http://csslint.net)
+- [htmlhint](http://htmlhint.com)
+- [htmllint](http://htmllint.github.io)
+- [coffeelint](http://coffeelint.org)
+- [tslint](https://palantir.github.io/tslint/)
+- [prettier](https://prettier.io/)
 
 Feel free to a PR to include other linters as part of the detection!
 
