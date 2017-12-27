@@ -224,6 +224,7 @@ it('should detect tslint', () => {
     return detectRepoLinters(tmpFolder)
         .then(assert);
 });
+
 it('should detect prettier', () => {
     function assert(linters) {
         expect(linters).to.eql(['prettier']);

@@ -20,7 +20,8 @@ function detectRepoLinters(dir) {
         return Promise.all(Object.keys(detectors)
             .map((name) => detectors[name](dir)
                 .then((detected) => detected && name)));
-    }).then((linters) => linters.filter((linter) => linter !== false));
+    })
+    .then((linters) => linters.filter((linter) => linter));
 }
 
 module.exports = detectRepoLinters;
