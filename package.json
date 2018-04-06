@@ -28,6 +28,7 @@
     "jshint",
     "jscs",
     "jslint",
+    "standard",
     "stylelint",
     "csslint",
     "htmlhint",
