@@ -247,6 +247,25 @@ it('should detect prettier', () => {
         .then(assert);
 });
 
+it('should detect standard', () => {
+    function assert(linters) {
+        expect(linters).to.eql(['standard']);
+    }
+
+    cleanTmpFolder();
+    fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { standard: '^x.x.x' } }));
+
+    return detectRepoLinters(tmpFolder)
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ standard: {} }));
+
+        return detectRepoLinters(tmpFolder);
+    })
+    .then(assert);
+});
+
 it('should detect several linters in a complex repository', () => {
     cleanTmpFolder();
     fs.writeFileSync(`${tmpFolder}/.editorconfig`, '');
