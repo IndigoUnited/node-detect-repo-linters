@@ -71,6 +71,20 @@ it('should detect eslint', () => {
 
         return detectRepoLinters(tmpFolder);
     })
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ eslintIgnore: {} }));
+
+        return detectRepoLinters(tmpFolder);
+    })
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { eslint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
