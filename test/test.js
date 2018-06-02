@@ -329,6 +329,25 @@ it('should detect standard', () => {
     .then(assert);
 });
 
+it('should detect xo', () => {
+    function assert(linters) {
+        expect(linters).to.eql(['xo']);
+    }
+
+    cleanTmpFolder();
+    fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ xo: {} }));
+
+    return detectRepoLinters(tmpFolder)
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { xo: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
+    .then(assert);
+});
+
 it('should detect several linters in a complex repository', () => {
     cleanTmpFolder();
     fs.writeFileSync(`${tmpFolder}/.editorconfig`, '');

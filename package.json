@@ -32,7 +32,8 @@
     "stylelint",
     "csslint",
     "htmlhint",
-    "htmllint"
+    "htmllint",
+    "xo"
   ],
   "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
   "license": "MIT",
