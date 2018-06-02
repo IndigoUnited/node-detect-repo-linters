@@ -81,7 +81,7 @@ it('should detect eslint', () => {
     .then(assert)
     .then(() => {
         cleanTmpFolder();
-        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ dependencies: { eslint: '^x.x.x' } }));
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { eslint: '^x.x.x' } }));
 
         return detectRepoLinters(tmpFolder);
     })
@@ -130,6 +130,13 @@ it('should detect jshint', () => {
 
         return detectRepoLinters(tmpFolder);
     })
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { jshint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
@@ -170,6 +177,13 @@ it('should detect stylelint', () => {
 
         return detectRepoLinters(tmpFolder);
     })
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { stylelint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
@@ -182,6 +196,13 @@ it('should detect csslint', () => {
     fs.writeFileSync(`${tmpFolder}/.csslintrc`, '');
 
     return detectRepoLinters(tmpFolder)
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { csslint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
@@ -194,6 +215,13 @@ it('should detect htmlhint', () => {
     fs.writeFileSync(`${tmpFolder}/.htmlhintrc`, '');
 
     return detectRepoLinters(tmpFolder)
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { htmlhint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
@@ -224,6 +252,13 @@ it('should detect coffeelint', () => {
         fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ coffeelintConfig: {} }));
         return detectRepoLinters(tmpFolder);
     })
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { coffeelint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
     .then(assert);
 });
 
@@ -236,7 +271,14 @@ it('should detect tslint', () => {
     fs.writeFileSync(`${tmpFolder}/tslint.json`, '');
 
     return detectRepoLinters(tmpFolder)
-        .then(assert);
+    .then(assert)
+    .then(() => {
+        cleanTmpFolder();
+        fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { tslint: '^x.x.x' } }));
+
+        return detectRepoLinters(tmpFolder);
+    })
+    .then(assert);
 });
 
 it('should detect prettier', () => {
@@ -256,6 +298,13 @@ it('should detect prettier', () => {
         .then(() => {
             cleanTmpFolder();
             fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ prettier: {} }));
+            return detectRepoLinters(tmpFolder);
+        })
+        .then(assert)
+        .then(() => {
+            cleanTmpFolder();
+            fs.writeFileSync(`${tmpFolder}/package.json`, JSON.stringify({ devDependencies: { prettier: '^x.x.x' } }));
+
             return detectRepoLinters(tmpFolder);
         })
         .then(assert);
