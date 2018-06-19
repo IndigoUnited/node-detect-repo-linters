@@ -53,6 +53,8 @@ At the moment the following linters are detected:
 - [coffeelint](http://coffeelint.org)
 - [tslint](https://palantir.github.io/tslint/)
 - [prettier](https://prettier.io/)
+- [standard](https://standardjs.com/)
+- [xo](https://github.com/xojs/xo/)
 
 Feel free to a PR to include other linters as part of the detection!
 

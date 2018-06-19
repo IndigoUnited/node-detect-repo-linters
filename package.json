@@ -28,15 +28,18 @@
     "jshint",
     "jscs",
     "jslint",
+    "standard",
     "stylelint",
     "csslint",
     "htmlhint",
-    "htmllint"
+    "htmllint",
+    "xo"
   ],
   "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
   "license": "MIT",
   "dependencies": {
     "load-json-file": "^3.0.0",
+    "lodash.get": "^4.4.2",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {
