@@ -38,18 +38,18 @@
   "author": "IndigoUnited <hello@indigounited.com> (http://indigounited.com)",
   "license": "MIT",
   "dependencies": {
-    "load-json-file": "^3.0.0",
+    "load-json-file": "^5.1.0",
     "lodash.get": "^4.4.2",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {
     "@satazor/eslint-config": "^3.0.0",
     "chai": "^4.0.2",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.2",
     "eslint": "^3.0.0",
     "istanbul": "^0.4.2",
     "mkdirp": "^0.5.1",
-    "mocha": "^4.0.0",
+    "mocha": "^5.2.0",
     "rimraf": "^2.5.1"
   },
   "engines": {
