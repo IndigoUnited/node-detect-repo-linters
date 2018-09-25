@@ -40,6 +40,8 @@ detectRepoLinters('./some-repository-directory')
 });
 ```
 
+Note that this package will attempt to read the `package.json` file from the specified directory and will throw a `JSONError` if a JSON parsing error occurs.
+
 At the moment the following linters are detected:
 
 - [editorconfig](http://editorconfig.org)
